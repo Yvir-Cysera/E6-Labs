@@ -52,7 +52,7 @@ theta2 = alpha2 +beta2;
 %Pulley 3
 z3 = pulley3(3);
 %Distance from knot to the pully on the x and y axis
-a3 = ((pulley3(1)^2) + (pulley3(2)^2))^1/2;
+a3 = ((pulley3(1)^2) + (pulley3(2)^2))^(1/2);
 alpha3 = atand(z3/(a3-pulleySheaveRadius));
 %beta
 pullCenter3 = pulley3(3)/sind(alpha3);
@@ -61,7 +61,7 @@ theta3 = alpha3 +beta3;
 %Pulley 4
 z4 = pulley4(3);
 %Distance from knot to the pully on the x and y axis
-a4 = ((pulley4(1)^2) + (pulley4(2)^2))^1/2;
+a4 = ((pulley4(1)^2) + (pulley4(2)^2))^(1/2);
 alpha4 = atand(z4/(a4-pulleySheaveRadius));
 %beta
 pullCenter4 = pulley4(3)/sind(alpha4);
