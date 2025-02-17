@@ -35,6 +35,7 @@ disp("Trial 2 counterweights in Newtons [9.164502 14.38146 11.738646]")
 disp("Trial 3 counterweights in Newtons [7.715565 14.38146 11.738646]")
 WeightArry = input(prompt2);
 disp(" ")
+
 % pulley coordinates with knot as origin
 pulley1 = pulley1 - knot;
 pulley2 = pulley2 - knot;
