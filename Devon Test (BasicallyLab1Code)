@@ -1,0 +1,20 @@
+% Lab 2 Matlab Code
+% Steps:
+% Inputting Variables (X,Y,Z) and Weight
+
+% reset workspace and command windows
+clear
+close all
+clc
+
+% Variables (meters) 
+pulley2 = [-2.47015 1.62052 2.962];
+pulley4 = [2.39776 1.62052 2.965];
+knotWeight = 1.372*9.8; % Newtons
+
+% We display these coordinates from our experiment for simplicity's sake
+% Feel free to use your own dataset! :D
+disp("Copy and paste a line [x,y,z] and put into prompted location")
+disp("Trial 1 Knot Coord [-0.64008,1.61798,1.25476]")
+disp("Trial 2 Knot Coord [-0.58928,1.61544,1.07696]")
+disp("Trial 3 Knot Coord [-0.38354,1.61544,0.92456]")
