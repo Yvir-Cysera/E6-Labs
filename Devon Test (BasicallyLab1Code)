@@ -18,3 +18,18 @@ disp("Copy and paste a line [x,y,z] and put into prompted location")
 disp("Trial 1 Knot Coord [-0.64008,1.61798,1.25476]")
 disp("Trial 2 Knot Coord [-0.58928,1.61544,1.07696]")
 disp("Trial 3 Knot Coord [-0.38354,1.61544,0.92456]")
+
+% input
+prompt = "Give a point for the knot: ";
+prompt2 = "Give the counterweights: ";
+knot = input(prompt);
+disp(" ")
+disp("Trial 1 counterweights in Newtons [10.784133 8.488593]")
+disp("Trial 2 counterweights in Newtons [10.502586 8.488593]")
+disp("Trial 3 counterweights in Newtons [9.568674 8.488593]")
+WeightArry = input(prompt2);
+disp(" ")
+
+% pulley coordinates with knot as origin
+pulley2 = pulley2 - knot
+pulley4 = pulley4 - knot
