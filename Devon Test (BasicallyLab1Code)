@@ -33,3 +33,6 @@ disp(" ")
 % pulley coordinates with knot as origin
 pulley2 = pulley2 - knot
 pulley4 = pulley4 - knot
+
+% Distance from knot to the pully on the x and z axis
+a1 = sqrt(((pulley2(1)^2) + (pulley2(3)^2)));
