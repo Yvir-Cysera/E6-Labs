@@ -36,3 +36,12 @@ pulley4 = pulley4 - knot
 
 % Distance from knot to the pulley on the x and z axis
 a1 = sqrt(((pulley2(1)^2) + (pulley2(3)^2)));
+a2 =sqrt(((pulley4(1)^2) + (pulley4(3)^2)))
+
+%Preparing to find moment for each pulley (only 1 is needed)
+P2x=(pulley2(1))/a1
+P2z=(pulley2(3))/a1
+P4x=(pulley2(1))/a2
+P4z=(pulley2(3))/a2
+
+
