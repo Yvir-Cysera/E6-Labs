@@ -56,7 +56,7 @@ Lambda4 = pulley4./norm(pulley4);
 
 %Matrix = [Lambda2(1), -1*Lambda4(1), 0; Lambda2(2), -1*Lambda4(2), 0; Lambda2(3), Lambda4(3), -1*knotWeight];
 %Sum = [0; 0; 0];
-Matrix = [Lambda2(1), -1*Lambda4(1); Lambda2(3), Lambda4(3)];
+Matrix = [Lambda2(1), Lambda4(1); Lambda2(3), Lambda4(3)];
 Sum =[0; knotWeight];
 
 Result = Matrix\Sum
