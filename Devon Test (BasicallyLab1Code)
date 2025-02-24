@@ -45,3 +45,8 @@ P4x=(pulley2(1))/a2
 P4z=(pulley2(3))/a2
 
 
+Lambda2 = pulley2./norm(pulley2);
+Lambda4 = pulley4./norm(pulley4);
+
+
+
