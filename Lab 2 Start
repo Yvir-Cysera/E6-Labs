@@ -1,0 +1,22 @@
+%% -----------------------------------------------------------
+% Lab 2: Haven, Devon, Alexis, Gael, Osmar, Iver
+%% -------------------------------------
+
+clear 
+close all
+clc
+
+%% [x, z] variable coordinates & weights
+
+WL2 = [-2.47015, 2.962]; %weight location 2, meters
+WL4 = [2.39776, 2.965]; %weight location 4, meters
+
+CWL1 = 0.0254 * [-25.2, 36.7]; %Centerweight location, meters
+CWL2 = 0.0254 * [-23.2, 29.7];
+CWL3 = 0.0254 * [-15.1, 23.7];
+
+CW1 = 9.8 * [1.0993, .8653]; %Counterweight by trial [pulley 2, pulley 4], newtons
+CW2 = 9.8 * [1.0706,.8653];
+CW3 = 9.8 * [.9754, .8653];
+
+HW = 9.8 * [1.372]; %Laser weight, N   
