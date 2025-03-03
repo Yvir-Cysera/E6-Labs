@@ -41,7 +41,4 @@ distance2 = sqrt(((vector2(1)^2))+(vector2(3)^2));
 distance4 = sqrt(((vector4(1)^2))+(vector4(3)^2));
 % y axis ignored since we only have 2 dimensions
 
-% find unit vector
-lambda2 = vector2 ./ distance2;
-lambda4 = vector4 ./ distance4;
-
+% find unit vect
