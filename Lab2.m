@@ -59,4 +59,4 @@ Lambda4 = pulley4 ./ norm(pulley4);
 Matrix = [Lambda2(1), Lambda4(1); Lambda2(3), Lambda4(3)];
 Sum =[0; knotWeight];
 
-Result = Matrix\Sum
+Result = Matrix\Sum;
