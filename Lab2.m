@@ -16,7 +16,7 @@ clc
 % Variables (meters) 
 pulley2 = [-2.47015 1.62052 2.962];
 pulley4 = [2.39776 1.62052 2.965];
-knotWeight = 1.372*9.8; % Newtons
+knotWeight = 1.372 * 9.8; % Newtons
 
 % We display these coordinates from our experiment for simplicity's sake
 % Feel free to use your own dataset! :D
@@ -42,17 +42,17 @@ pulley4 = pulley4 - knot;
 
 % Distance from knot to the pulley on the x and z axis
 a1 = sqrt(((pulley2(1)^2) + (pulley2(3)^2)));
-a2 =sqrt(((pulley4(1)^2) + (pulley4(3)^2)));
+a2 = sqrt(((pulley4(1)^2) + (pulley4(3)^2)));
 
 %Preparing to find moment for each pulley (only 1 is needed)
-P2x=(pulley2(1))/a1;
-P2z=(pulley2(3))/a1;
-P4x=(pulley2(1))/a2;
-P4z=(pulley2(3))/a2;
+P2x = (pulley2(1)) / a1;
+P2z = (pulley2(3)) / a1;
+P4x = (pulley2(1)) / a2;
+P4z = (pulley2(3)) / a2;
 
 
-Lambda2 = pulley2./norm(pulley2);
-Lambda4 = pulley4./norm(pulley4);
+Lambda2 = pulley2 ./ norm(pulley2);
+Lambda4 = pulley4 ./ norm(pulley4);
 
 %Matrix = [Lambda2(1), -1*Lambda4(1), 0; Lambda2(2), -1*Lambda4(2), 0; Lambda2(3), Lambda4(3), -1*knotWeight];
 %Sum = [0; 0; 0];
