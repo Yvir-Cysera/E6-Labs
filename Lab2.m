@@ -1,17 +1,13 @@
 % 2/21/25
 % ENGR006
-% Lab 2
-
-clear all
-close all
-clc
-
-
 % Lab 2 Matlab Code
 % Steps:
 % Inputting Variables (X,Y,Z) and Weight
 
-% reset workspace and command windows
+% clean workspace, figures and command window
+clear all
+close all
+clc
 
 % Variables (meters) 
 pulley2 = [-2.47015 1.62052 2.962];
@@ -58,5 +54,6 @@ Lambda4 = pulley4 ./ norm(pulley4);
 %Sum = [0; 0; 0];
 Matrix = [Lambda2(1), Lambda4(1); Lambda2(3), Lambda4(3)];
 Sum =[0; knotWeight];
+
 
 Result = Matrix\Sum;
