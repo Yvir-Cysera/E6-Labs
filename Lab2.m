@@ -45,3 +45,13 @@ distance4 = sqrt(((vector4(1)^2))+(vector4(3)^2));
 lambda2 = vector2 ./ distance2;
 lambda4 = vector4 ./ distance4;
 
+% fsolve
+function F = myfun(x)
+
+F(1) = (x(1).*lambda2(1)) + (x(2).*lambda4(1));
+F(2) = (x(1).*lambda2(3)) + (x(2).*lambda4(3));
+F(3) = (x(3).*x(1)) - (cross(vector4,x(3)));
+end
+fun = @;
+x0 = [0,0,0];
+x = fsolve(fun,x0);
