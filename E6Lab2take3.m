@@ -68,16 +68,16 @@ F(2) = (x(2)*zprime2)/m2 + (x(3)*zprime4)/m4 - HW;
 F(3) = abs(((x2 - x(1)) * zprime2)/m2 - (x2*z2)/m2) - x(1);
 
 end 
-x
+
 
 %% TRIAL 2 
 % 0. Variable coordinates & weights [x, z] 
 
-fun = @root2d;
-y0 = [.01905, 10.49188, 8.47994] %estimate based on counterweights and given value for radius
-y = fsolve(fun,y0)
+fun = @root2d2;
+y0 = [.01905, 10.49188, 8.47994]; %estimate based on counterweights and given value for radius
+y = fsolve(fun,y0);
 
-function A = root2d(y)
+function A = root2d2(y);
 
 Pul2 = [-2.42824, 2.962]; %pulley location 2, [X Z] meters
 Pul4 = [2.41681, 2.965]; 
@@ -97,37 +97,37 @@ z2 = Pul2(2) - CWL2(2);
 z4 = Pul4(2) - CWL2(2);
 
 %% 2. Z' calulations
-a2 = atand( x2 / (x2-x(1)) ); %solves for pulley 2 alpha/beta/z' based z' equation
-b2 = asind(x(1)/sqrt(z4 - x(1)^2 + (z4)^2));
+a2 = atand( x2 / (x2-y(1)) ); %solves for pulley 2 alpha/beta/z' based z' equation
+b2 = asind(y(1)/sqrt(z4 - y(1)^2 + (z4)^2));
 zprime2 = Pul2(1)*atand(a2 + b2);
 m2 = sqrt(x2^2+z2^2);
 
-a4 = atand(z4)/(x4-x(1)); %solves for pulley 4
-b4 = asind(x(1) / sqrt((z4 - x(1))^2 + z4^2));
+a4 = atand(z4)/(x4-y(1)); %solves for pulley 4
+b4 = asind(y(1) / sqrt((z4 - y(1))^2 + z4^2));
 zprime4 = Pul4(1)*atand(a4 + b4);
 m4 = sqrt(x4^2+z4^2);
 
 %% 3 Equations in terms of radius
 
 %Fx=0 equation
-A(1) = (x(2) * x2)/m2 - (x(3) * z4)/m4;
+A(1) = (y(2) * x2)/m2 - (y(3) * z4)/m4;
 
 %Fz=0 equation
-A(2) = (x(2)*zprime2)/m2 + (x(3)*zprime4)/m4 - HW;
+A(2) = (y(2)*zprime2)/m2 + (y(3)*zprime4)/m4 - HW;
 
 %moment equation
-A(3) = abs(((x2 - x(1)) * zprime2)/m2 - (x2*z2)/m2) - x(1);
+A(3) = abs(((x2 - y(1)) * zprime2)/m2 - (x2*z2)/m2) - y(1);
 
 end 
 
 %% TRIAL 3 
 % 0. Variable coordinates & weights [x, z] 
 
-fun = @root2d;
+fun = @root2d3;
 z0 = [.01905, 9.55892, 8.47994]; %estimate based on counterweights and given value for radius
-z = fsolve(fun,x0);
+z = fsolve(fun,z0);
 
-function B = root2d(z);
+function B = root2d3(z);
 
 Pul2 = [-2.42824, 2.962]; %pulley location 2, [X Z] meters
 Pul4 = [2.41681, 2.965]; 
@@ -148,38 +148,39 @@ z2 = Pul2(2) - CWL3(2);
 z4 = Pul4(2) - CWL3(2);
 
 %% 2. Z' calulations
-a2 = atand( x2 / (x2-x(1)) ); %solves for pulley 2 alpha/beta/z' based z' equation
-b2 = asind(x(1)/sqrt(z4 - x(1)^2 + (z4)^2));
+a2 = atand( x2 / (x2-z(1)) ); %solves for pulley 2 alpha/beta/z' based z' equation
+b2 = asind(z(1)/sqrt(z4 - z(1)^2 + (z4)^2));
 zprime2 = Pul2(1)*atand(a2 + b2);
 m2 = sqrt(x2^2+z2^2);
 
-a4 = atand(z4)/(x4-x(1)); %solves for pulley 4
-b4 = asind(x(1) / sqrt((z4 - x(1))^2 + z4^2));
+a4 = atand(z4)/(x4-z(1)); %solves for pulley 4
+b4 = asind(z(1) / sqrt((z4 - z(1))^2 + z4^2));
 zprime4 = Pul4(1)*atand(a4 + b4);
 m4 = sqrt(x4^2+z4^2);
 
 %% 3 Equations in terms of radius
 
 %Fx=0 equation
-B(1) = (x(2) * x2)/m2 - (x(3) * z4)/m4;
+B(1) = (z(2) * x2)/m2 - (z(3) * z4)/m4;
 
 %Fz=0 equation
-B(2) = (x(2)*zprime2)/m2 + (x(3)*zprime4)/m4 - HW;
+B(2) = (z(2)*zprime2)/m2 + (z(3)*zprime4)/m4 - HW;
 
 %moment equation
-B(3) = abs(((x2 - x(1)) * zprime2)/m2 - (x2*z2)/m2) - x(1);
+B(3) = abs(((x2 - z(1)) * zprime2)/m2 - (x2*z2)/m2) - z(1);
 
 end 
 
 
 %% 5. STANDARD DEVIATION CALCULATION
+clc
 
-Radii = [x(1), y(1), z(1)]; 
+Radii = [x(1), y(1), z(1)];
 
 Average = mean(Radii);
 StanDev = ((sum((Radii-Average).^2))./(3))^.5;
 StanDevRange = [Average - 3*StanDev, Average + 3*StanDev];
 
-formatSpec = 'The Standard Deviation is %f2 meters. Its range is %f4 meters to %f5 meters.'
+formatSpec = 'The Standard Deviation is %f2 meters. Its range is %f4 meters to %f5 meters.';
 fprintf(formatSpec,StanDev,StanDevRange(1),StanDevRange(2))
 
