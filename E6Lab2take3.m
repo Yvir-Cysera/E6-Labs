@@ -1,3 +1,6 @@
+%Lab 2: Devon, Haven, Alexis, Gael, Osmar, and Iver
+%
+
 clear 
 close all
 clc
@@ -175,12 +178,13 @@ end
 %% 5. STANDARD DEVIATION CALCULATION
 clc
 
-Radii = [x(1), y(1), z(1)];
+disp('Our three estimated radii values are below')
+Radii = [x(1), y(1), z(1)]
 
 Average = mean(Radii);
 StanDev = ((sum((Radii-Average).^2))./(3))^.5;
 StanDevRange = [Average - 3*StanDev, Average + 3*StanDev];
 
-formatSpec = 'The Standard Deviation is %f2 meters. Its range is %f4 meters to %f5 meters.';
+formatSpec = ['The Standard Deviation is %f2 meters. ' ...
+    'The 3 STD range of the estimated radius is %f4 meters to %f5 meters.'];
 fprintf(formatSpec,StanDev,StanDevRange(1),StanDevRange(2))
-
